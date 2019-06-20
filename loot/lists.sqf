@@ -23,8 +23,8 @@ _count =  count (configFile >> "CfgWeapons");
 for "_x" from 0 to (_count-1) do {
 	_weap = ((configFile >> "CfgWeapons") select _x);
 	if (isClass _weap) then {
-		_gmCheck = (configname _weap select [0,3]);
-		if (_gmCheck == "gm_") then {
+		_unsCheck = (configname _weap select [0,4]);
+		if (_unsCheck == "uns_") then {
 			if (getnumber (_weap >> "scope") == 2) then {
 				if (isClass (_weap >> "ItemInfo")) then {
 					_infoType = (getnumber (_weap >> "ItemInfo" >> "Type"));
@@ -61,8 +61,8 @@ _count =  count (configFile >> "CfgVehicles");
 for "_x" from 0 to (_count-1) do {
     _item=((configFile >> "CfgVehicles") select _x);
     if (isClass _item) then {
-			_gmCheck = (configname _item select [0,3]);
-				if (_gmCheck == "gm_") then {
+			_unsCheck = (configname _item select [0,4]);
+				if (_unsCheck == "uns_") then {
 	        if (getnumber (_item >> "scope") == 2) then {
 	            if (gettext (_item >> "vehicleClass") == "Backpacks") then {
 	                _backpacks = _backpacks + [configname _item]
@@ -76,8 +76,8 @@ _count =  count (configFile >> "CfgGlasses");
 for "_x" from 0 to (_count-1) do {
     _item=((configFile >> "CfgGlasses") select _x);
     if (isClass _item) then {
-			_gmCheck = (configname _item select [0,3]);
-			if (_gmCheck == "gm_") then {
+			_unsCheck = (configname _item select [0,4]);
+			if (_unsCheck == "uns_") then {
         if (getnumber (_item >> "scope") == 2) then {
             _glasses = _glasses + [configName _item];
         };
@@ -87,16 +87,16 @@ for "_x" from 0 to (_count-1) do {
 _count =  count (configFile >> "CfgFaces" >> "Man_A3");
 for "_x" from 0 to (_count-1) do {
     _item=((configFile >> "CfgFaces" >> "Man_A3") select _x);
-		_gmCheck = (configname _item select [0,3]);
-    if (isClass _item && _gmCheck == "gm_") then {_faces = _faces + [configName _item];};
+		_unsCheck = (configname _item select [0,4]);
+    if (isClass _item && _unsCheck == "uns_") then {_faces = _faces + [configName _item];};
 };
 
 _count =  count (configFile >> "CfgMagazines");
 for "_x" from 0 to (_count-1) do {
     _item=((configFile >> "CfgMagazines") select _x);
 	if (isClass _item) then {
-		_gmCheck = (configname _item select [0,3]);
-		if (_gmCheck == "gm_") then {
+		_unsCheck = (configname _item select [0,4]);
+		if (_unsCheck == "uns_") then {
 			if(getNumber (_item >> "value") == 5) then {
 				if(["mine", getText (_item >> "displayName")] call BIS_fnc_inString) then {
 					_mines = _mines + [configName _item];
