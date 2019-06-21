@@ -8,10 +8,9 @@
 
 /* Attacker Waves */
 
-// List_Bandits, List_ParaBandits, List_OPFOR, List_INDEP, List_NATO, List_Viper, List_EastBoarderGaurd, List_EastGermanSol, List_EastGermanMG, List_EastGermanSol_Winter, List_EastGermanMG_Winter. check hostiles\lists for more
-HOSTILE_LEVEL_1 = List_EastBoarderGaurd;  // Wave 0 >
-HOSTILE_LEVEL_2 = List_EastGermanSol_Winter;    // Wave 5 >
-HOSTILE_LEVEL_3 = List_EastGermanMG_Winter;    // Wave 10 >
+HOSTILE_LEVEL_1 = List_VCLocalForce;  // Wave 0 >
+HOSTILE_LEVEL_2 = List_VCMainForce;    // Wave 5 >
+HOSTILE_LEVEL_3 = List_VCReconForce;    // Wave 10 >
 
 HOSTILE_MULTIPLIER = ("HOSTILE_MULTIPLIER" call BIS_fnc_getParamValue);  // How many hostiles per wave (waveCount x HOSTILE_MULTIPLIER)
 HOSTILE_TEAM_MULTIPLIER = ("HOSTILE_TEAM_MULTIPLIER" call BIS_fnc_getParamValue) / 100;   // How many extra units are added per player
@@ -52,8 +51,7 @@ LOOT_ROOM_DISTRIBUTION = ("LOOT_ROOM_DISTRIBUTION" call BIS_fnc_getParamValue); 
 LOOT_DISTRIBUTION_OFFSET = 0; // Offset the position by this number.
 LOOT_SUPPLYDROP = ("LOOT_SUPPLYDROP" call BIS_fnc_getParamValue) / 100;        // Radius of supply drop
 PARATROOP_COUNT = ("PARATROOP_COUNT" call BIS_fnc_getParamValue);
-/* Paratrooper lists: List_Nato, List_WestGerman, List_WestGerman_Winter, List_Denmark, List_Denmark_Winter */
-PARATROOP_CLASS = List_Denmark_Winter;
+PARATROOP_CLASS = List_USMC;
 
 /* Points */
 SCORE_KILL = ("SCORE_KILL" call BIS_fnc_getParamValue);                 // Every kill
@@ -66,7 +64,7 @@ SCORE_RANDOMBOX = 950;  // Cost to spin the box
 BULWARK_SUPPORTITEMS = [
     [800,  "Recon UAV",             "reconUAV"],
     [1685, "Emergency Teleport",   "telePlode"],
-    [1950, "Paratroopers",          "paraDrop"],
+    [1950, "Squad of Young Motivators",          "paraDrop"],
     [4850, "Mind Control Gas",    "mindConGas"],
     [5430, "Missle CAS",           "airStrike"],
     [5930, "Rage Stimpack",         "ragePack"],
@@ -81,7 +79,10 @@ BULWARK_SUPPORTITEMS = [
 /*  Price - Display Name - Class Name - Rotation When Bought - Object Radius (meters) *prevents AI glitching through object and triggers suicide bombers*/
 BULWARK_BUILDITEMS = [
     [25,   "Long Plank (8m)",      "Land_Plank_01_8m_F",                0,   4],
-    [50,   "Junk Barricade",       "Land_Barricade_01_4m_F",            0, 1.5],
+	[50,   "USA Flag",             "uns_FlagCarrierUS",                 0,   1],
+	[50,   "USMC Flag",            "uns_FlagCarrierUSMC",               0,   1],
+	[50,   "Loudspeaker",          "uns_radio2_land_loudspeaker",       0,   1],
+    [50,   "Razor Wire",		   "Razorwire",							0, 1.5],
     [75,   "Small Ramp (1m)",      "Land_Obstacle_Ramp_F",            180, 1.5],
     [85,   "Flat Triangle (1m)",   "Land_DomeDebris_01_hex_green_F",  180, 1.5],
     [100,  "Short Sandbag Wall",   "Land_SandbagBarricade_01_half_F",   0, 1.5],
@@ -97,12 +98,12 @@ BULWARK_BUILDITEMS = [
     [1000, "Double H Barrier",     "Land_HBarrierWall4_F",              0,   4],
     [1000, "Concrete Platform",    "BlockConcrete_F",                   0, 3.5],
     [1200, "Storage box large",    "Box_NATO_AmmoVeh_F",                0,   1],
-    [2500, "Machine Gun",          "B_HMG_01_F",                        0,   1],
-    [2500, "Machine Gun (raised)", "B_HMG_01_high_F",                   0,   1],
-    [3000, "Small Bunker",         "Land_BagBunker_Small_F",          180,   3],
-    [3800, "Large Platform",       "Land_Pier_addon",                   0,   8],
-    [5000, "Guard Tower",          "Land_Cargo_Patrol_V3_F",          180,   3],
-    [6500, "Tall Tower",           "land_gm_tower_bt_11_60",           90,   3]
+    [2500, "Grenade Launcher",     "uns_US_MK18_low",                   0,   1],
+    [2500, "Machine Gun (raised)", "uns_m2_high",					    0,   1],
+	[3000, "Mortar",			   "uns_M1_81mm_mortar",				0,   1],
+    [3000, "Small Trench",         "LAND_t_sb_pit1",				    0,   3],
+    [3800, "Weapon Pit",		   "LAND_uns_weapon_pit",               0,   8],
+    [5000, "Guard Tower",          "Land_Wood_Tower",				    0,   3]
 ];
 
 /* Time of Day*/
