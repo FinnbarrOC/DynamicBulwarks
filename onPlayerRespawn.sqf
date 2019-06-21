@@ -10,10 +10,14 @@ removeAllWeapons _player:
 removeAllAssignedItems _player;
 _player setPosASL ([bulwarkBox] call bulwark_fnc_findPlaceAround);
 
+_player addMagazine "uns_kabar";
+_player addItem "ItemCompass";
+_player assignItem "ItemCompass";
+
 if(PLAYER_STARTWEAPON) then {
-    _player addMagazine "gm_8rnd_9x19mm_b_dm11_p1_blk";
-    _player addMagazine "gm_8rnd_9x19mm_b_dm11_p1_blk";
-    _player addWeapon "gm_p1_blk";
+    _player addMagazine "uns_m1911mag";
+    _player addMagazine "uns_m1911mag";
+    _player addWeapon "uns_m1911";
 };
 
 if(PLAYER_STARTMAP) then {
