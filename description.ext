@@ -1,9 +1,9 @@
-onLoadMission = "Dynamic Bulwarks: Cold War";
+onLoadMission = "Dynamic Bulwarks: Vietnam";
 onLoadIntro = "Defend yourself";
-onLoadName = "Dynamic Bulwarks: Cold War";
-briefingName = "Dynamic Bulwarks: Cold War";
+onLoadName = "Dynamic Bulwarks: Vietnam";
+briefingName = "Dynamic Bulwarks: Vietnam";
 overviewText = "Survive by scavenging equipment, in a randomly selected city, against ever increasing waves of hostiles.";
-author = "Hilltop & omNomios";
+author = "Hilltop & omNomios (Unsung port by ALP1NE)";
 overviewPicture = "preview.paa";
 
 loadScreen = "preview.paa";
@@ -445,7 +445,7 @@ class Params
 		};
 		texts[] = {
 			"None",
-			"gm_ge_army_medkit_80",
+			"Medikit",
 			"First Aid Kit / Medikit"
 		};
 		default = 2;
