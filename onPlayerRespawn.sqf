@@ -10,9 +10,12 @@ removeAllWeapons _player:
 removeAllAssignedItems _player;
 _player setPosASL ([bulwarkBox] call bulwark_fnc_findPlaceAround);
 
+comment "A classic Vietnam style, just for fun"
+_player forceAddUniform "UNS_ARMY_BDU_USMC67Dirtyipatch";
+_player addHeadgear "UNS_Headband_OD";
+_player addGoggles "G_Aviator";
 _player addMagazine "uns_kabar";
-_player addItem "ItemCompass";
-_player assignItem "ItemCompass";
+_player linkItem "ItemCompass";
 
 if(PLAYER_STARTWEAPON) then {
     _player addMagazine "uns_m1911mag";
