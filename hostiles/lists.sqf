@@ -57,167 +57,48 @@ List_ZombieSlow = _zombieSlow;
 List_ZombieBoss = _zombieBoss;
 List_ZombieWalker = _zombieWalker;
 
-_bandits = [];
-_groupConfig = configfile >> "CfgGroups" >> "Indep" >> "IND_C_F" >> "Infantry" >> "BanditCombatGroup";
+// UNSUNG UNITS
+
+_VCLocalForce = [];
+_groupConfig = configfile >> "CfgGroups" >> "East" >> "UNSUNG_EV_VCG" >> "vclocalInfantry" >> "vc_assaultSquad";
 _count = count (_groupConfig);
 for "_x" from 0 to (_count-1) do {
     _item=((_groupConfig) select _x);
     if (isClass _item) then {
-		_bandits pushback getText (_item >> "vehicle");
+		_VCLocalForce pushback getText (_item >> "vehicle");
     };
 };
-List_Bandits = _bandits;
+List_VCLocalForce = _VCLocalForce;
 
-_paraBandits = [];
-_groupConfig = configfile >> "CfgGroups" >> "Indep" >> "IND_C_F" >> "Infantry" >> "ParaCombatGroup";
+_VCMainForce = [];
+_groupConfig = configfile >> "CfgGroups" >> "East" >> "UNSUNG_EV_VC" >> "vcmainforceInfantry" >> "vc_mainweaponsquadtwo";
 _count = count (_groupConfig);
 for "_x" from 0 to (_count-1) do {
     _item=((_groupConfig) select _x);
     if (isClass _item) then {
-		_paraBandits pushback getText (_item >> "vehicle");
+		_VCMainForce pushback getText (_item >> "vehicle");
     };
 };
-List_ParaBandits = _paraBandits;
+List_VCMainForce = _VCMainForce;
 
-_eastSoldier = [];
-_groupConfig = configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OIA_InfSquad";
+_VCReconForce = [];
+_groupConfig = configfile >> "CfgGroups" >> "East" >> "UNSUNG_EV_VC" >> "vcrregionalreconInfantry" >> "vc_recriflesquadtwo";
 _count = count (_groupConfig);
 for "_x" from 0 to (_count-1) do {
     _item=((_groupConfig) select _x);
     if (isClass _item) then {
-		_eastSoldier pushback getText (_item >> "vehicle");
+		_VCReconForce pushback getText (_item >> "vehicle");
     };
 };
-List_OPFOR = _eastSoldier;
+List_VCReconForce = _VCReconForce;
 
-_indSoldier = [];
-_groupConfig = configfile >> "CfgGroups" >> "Indep" >> "IND_F" >> "Infantry" >> "HAF_InfSquad";
-_count = count (_groupConfig);
-for "_x" from 0 to (_count-1) do {
-    _item=(_groupConfig select _x);
-    if (isClass _item) then {
-		_indSoldier pushback getText (_item >> "vehicle");
-    };
-};
-List_INDEP = _indSoldier;
-
-_natoSoldier = [];
-_groupConfig = configfile >> "CfgGroups" >> "West" >> "BLU_F" >> "Infantry" >> "BUS_InfSquad";
-_count = count (_groupConfig);
-for "_x" from 0 to (_count-1) do {
-    _item=(_groupConfig select _x);
-    if (isClass _item) then {
-		_natoSoldier pushback getText (_item >> "vehicle");
-    };
-};
-List_NATO = _natoSoldier;
-
-_viper = [];
-_groupConfig = configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "SpecOps" >> "OI_ViperTeam";
-_count =  count (_groupConfig);
-for "_x" from 0 to (_count-1) do {
-    _item=((_groupConfig) select _x);
-    if (isClass _item) then {
-		_viper pushback getText (_item >> "vehicle");
-    };
-};
-List_Viper = _viper;
-
-_eastSoldierGm = [];
-_groupConfig = configfile >>"CfgGroups" >> "East" >> "gm_gc_army" >> "gm_infantry" >> "gm_gc_army_infantry_squad_win";
+_USMC = [];
+_groupConfig = configfile >> "CfgGroups" >> "West" >> "UNSUNG_W_USMC" >> "ususmcInfantry" >> "usmc_weaponsquad6";
 _count = count (_groupConfig);
 for "_x" from 0 to (_count-1) do {
     _item=((_groupConfig) select _x);
     if (isClass _item) then {
-		_eastSoldierGm pushback getText (_item >> "vehicle");
+		_USMC pushback getText (_item >> "vehicle");
     };
 };
-List_EastGermanSol = _eastSoldierGm;
-
-_eastSoldierGmWinter = [];
-_groupConfig = configfile >>"CfgGroups" >> "East" >> "gm_gc_army_win" >> "gm_infantry" >> "gm_gc_army_infantry_squad_win";
-_count = count (_groupConfig);
-for "_x" from 0 to (_count-1) do {
-    _item=((_groupConfig) select _x);
-    if (isClass _item) then {
-		_eastSoldierGmWinter pushback getText (_item >> "vehicle");
-    };
-};
-List_EastGermanSol_Winter = _eastSoldierGmWinter;
-
-_eastBoarderGaurd = [];
-_groupConfig = configfile >> "CfgGroups" >> "East" >> "gm_gc_army" >> "gm_borderguards" >> "gm_gc_bgs_infantry_post_str";
-_count = count (_groupConfig);
-for "_x" from 0 to (_count-1) do {
-    _item=((_groupConfig) select _x);
-    if (isClass _item) then {
-		_eastBoarderGaurd pushback getText (_item >> "vehicle");
-    };
-};
-List_EastBoarderGaurd = _eastBoarderGaurd;
-
-_eastSoldierGermanMGWin = [];
-_groupConfig = configfile >> "CfgGroups" >> "East" >> "gm_gc_army_win" >> "gm_infantry" >> "gm_ge_army_infantry_mggroup_str";
-_count = count (_groupConfig);
-for "_x" from 0 to (_count-1) do {
-    _item=((_groupConfig) select _x);
-    if (isClass _item) then {
-		_eastSoldierGermanMGWin pushback getText (_item >> "vehicle");
-    };
-};
-List_EastGermanMG_Winter = _eastSoldierGermanMGWin;
-
-_eastSoldierGermanMG = [];
-_groupConfig = configfile >> "CfgGroups" >> "East" >> "gm_gc_army_win" >> "gm_infantry" >> "gm_ge_army_infantry_mggroup_str";
-_count = count (_groupConfig);
-for "_x" from 0 to (_count-1) do {
-    _item=((_groupConfig) select _x);
-    if (isClass _item) then {
-		_eastSoldierGermanMG pushback getText (_item >> "vehicle");
-    };
-};
-List_EastGermanMG = _eastSoldierGermanMG;
-
-_DenmarkSoldierWinter = [];
-_groupConfig = configfile >> "CfgGroups" >> "West" >> "gm_dk_army_m84" >> "gm_infantry" >> "gm_dk_army_infantry_squad_84_m84";
-_count = count (_groupConfig);
-for "_x" from 0 to (_count-1) do {
-    _item=(_groupConfig select _x);
-    if (isClass _item) then {
-		_DenmarkSoldierWinter pushback getText (_item >> "vehicle");
-    };
-};
-List_Denmark = _DenmarkSoldierWinter;
-
-_DenmarkSoldierWinter = [];
-_groupConfig = configfile >> "CfgGroups" >> "West" >> "gm_dk_army_win" >> "gm_infantry" >> "gm_dk_army_infantry_squad_84_win";
-_count = count (_groupConfig);
-for "_x" from 0 to (_count-1) do {
-    _item=(_groupConfig select _x);
-    if (isClass _item) then {
-		_DenmarkSoldierWinter pushback getText (_item >> "vehicle");
-    };
-};
-List_Denmark_Winter = _DenmarkSoldierWinter;
-
-_WestGermanSoldier = [];
-_groupConfig = configfile >> "CfgGroups" >> "West" >> "gm_ge_army" >> "gm_infantry" >> "gm_ge_army_infantry_squad_80_ols";
-_count = count (_groupConfig);
-for "_x" from 0 to (_count-1) do {
-    _item=(_groupConfig select _x);
-    if (isClass _item) then {
-		_WestGermanSoldier pushback getText (_item >> "vehicle");
-    };
-};
-List_WestGerman = _WestGermanSoldier;
-
-_WestGermanSoldierWinter = [];
-_groupConfig = configfile >> "CfgGroups" >> "West" >> "gm_ge_army_win" >> "gm_infantry" >> "gm_ge_army_infantry_squad_parka_80_win";
-_count = count (_groupConfig);
-for "_x" from 0 to (_count-1) do {
-    _item=(_groupConfig select _x);
-    if (isClass _item) then {
-		_WestGermanSoldierWinter pushback getText (_item >> "vehicle");
-    };
-};
-List_WestGerman_Winter = _WestGermanSoldierWinter;
+List_USMC = _USMC;
